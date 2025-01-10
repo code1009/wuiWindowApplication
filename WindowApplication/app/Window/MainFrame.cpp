@@ -16,7 +16,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-constexpr LPCWSTR MainFrame_ClassName = L"MainFrame";
+constexpr LPCWSTR MainFrame_WindowClassName = L"MainFrame";
 
 
 
@@ -36,14 +36,14 @@ MainFrame::MainFrame()
 
 	windowClass.registerWindowClass(
 		nullptr,
-		MainFrame_ClassName,
+		MainFrame_WindowClassName,
 		IDC_WINDOWAPPLICATION,
 		IDI_WINDOWAPPLICATION, IDI_SMALL
 	);
 
 
 	//-----------------------------------------------------------------------
-	createWindow(MainFrame_ClassName);
+	createWindow(MainFrame_WindowClassName);
 
 
 	::ShowWindow(*this, SW_SHOW);
