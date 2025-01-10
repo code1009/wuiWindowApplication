@@ -26,10 +26,12 @@ constexpr LPCWSTR MainFrame_ClassName = L"MainFrame";
 //===========================================================================
 MainFrame::MainFrame()
 {
+	//-----------------------------------------------------------------------
 	_WindowMessageMap.on(WM_DESTROY) = &MainFrame::onDestroy;
 	_WindowMessageMap.on(WM_CLOSE) = &MainFrame::onClose;
 
 
+	//-----------------------------------------------------------------------
 	wui::WindowClass windowClass;
 
 
@@ -40,6 +42,8 @@ MainFrame::MainFrame()
 		IDI_WINDOWAPPLICATION, IDI_SMALL
 	);
 
+
+	//-----------------------------------------------------------------------
 	createWindow(MainFrame_ClassName);
 
 
