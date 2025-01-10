@@ -7,6 +7,12 @@
     <Filter Include="wui">
       <UniqueIdentifier>{7d86510b-55d7-466b-81ef-8bba3be869c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{3f15d02b-272f-49a7-88e0-5b83aca8b1ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app\Window">
+      <UniqueIdentifier>{76a0c010-c384-406b-a6e9-b63c0b796fc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\framework.hpp">
@@ -18,8 +24,53 @@
     <ClInclude Include="app\pch.hpp">
       <Filter>app</Filter>
     </ClInclude>
-    <ClInclude Include="app\targetver.hpp">
-      <Filter>app</Filter>
+    <ClInclude Include="wui\AppModule.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\BaseWindow.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="app\Window\MainFrame.hpp">
+      <Filter>app\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="app\Window\pch.hpp">
+      <Filter>app\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\pch.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Resource.h">
+      <Filter>res</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\MessageMapWindow.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\Window.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowClass.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowMessage.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowMessageHandler.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowMessageLoop.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowMessageMap.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowProc.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowStyle.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\wui.hpp">
+      <Filter>wui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -29,5 +80,42 @@
     <ClCompile Include="app\pch.cpp">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="wui\AppModule.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\BaseWindow.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="app\Window\MainFrame.cpp">
+      <Filter>app\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\Window.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowClass.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowMessage.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowMessageLoop.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowProc.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\small.ico">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="res\WindowApplication.ico">
+      <Filter>res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\WindowApplication.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
