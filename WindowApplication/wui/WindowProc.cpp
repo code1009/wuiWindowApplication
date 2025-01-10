@@ -26,6 +26,7 @@ LRESULT __stdcall WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 	{
 		auto userData = reinterpret_cast<CREATESTRUCTW*>(lparam)->lpCreateParams;
 
+
 		::SetWindowLongPtrW(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(userData));
 
 		(reinterpret_cast<Window*>(userData))->setWindowHandle(hwnd);
@@ -35,10 +36,7 @@ LRESULT __stdcall WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 	auto windowPtr = reinterpret_cast<Window*>(::GetWindowLongPtrW(hwnd, GWLP_USERDATA));
 	if (windowPtr)
 	{
-		LRESULT lResult;
-
-
-		lResult = windowPtr->WindowProc(hwnd, umsg, wparam, lparam);
+		auto lResult = windowPtr->onMessage(hwnd, umsg, wparam, lparam);
 
 
 		if (WM_NCDESTROY == umsg)
@@ -75,10 +73,7 @@ INT_PTR __stdcall DialogProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 	auto windowPtr = reinterpret_cast<Window*>(::GetWindowLongPtrW(hwnd, GWLP_USERDATA));
 	if (windowPtr)
 	{
-		LRESULT lResult;
-
-
-		lResult = windowPtr->WindowProc(hwnd, umsg, wparam, lparam);
+		auto lResult = windowPtr->onMessage(hwnd, umsg, wparam, lparam);
 
 
 		if (WM_NCDESTROY == umsg)

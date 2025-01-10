@@ -24,12 +24,15 @@
     <ClInclude Include="app\pch.hpp" />
     <ClInclude Include="app\Window\MainFrame.hpp" />
     <ClInclude Include="app\Window\pch.hpp" />
+    <ClInclude Include="res\Resource.h" />
     <ClInclude Include="wui\AppModule.hpp" />
+    <ClInclude Include="wui\BasicWindow.hpp" />
     <ClInclude Include="wui\pch.hpp" />
     <ClInclude Include="wui\Window.hpp" />
     <ClInclude Include="wui\WindowClass.hpp" />
-    <ClInclude Include="wui\WindowMessageLoop.hpp" />
+    <ClInclude Include="wui\MessageLoop.hpp" />
     <ClInclude Include="wui\WindowProc.hpp" />
+    <ClInclude Include="wui\WindowStyle.hpp" />
     <ClInclude Include="wui\wui.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -39,10 +42,18 @@
     </ClCompile>
     <ClCompile Include="app\Window\MainFrame.cpp" />
     <ClCompile Include="wui\AppModule.cpp" />
+    <ClCompile Include="wui\BasicWindow.cpp" />
     <ClCompile Include="wui\Window.cpp" />
     <ClCompile Include="wui\WindowClass.cpp" />
-    <ClCompile Include="wui\WindowMessageLoop.cpp" />
+    <ClCompile Include="wui\MessageLoop.cpp" />
     <ClCompile Include="wui\WindowProc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\small.ico" />
+    <Image Include="res\WindowApplication.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\WindowApplication.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -6,7 +6,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class MainFrame : public wui::Window
+class MainFrame : public wui::BasicWindow
 {
 public:
 	MainFrame();

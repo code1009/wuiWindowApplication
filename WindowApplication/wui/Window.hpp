@@ -12,6 +12,7 @@ namespace wui
 
 
 
+
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
 class Window
@@ -41,7 +42,8 @@ public:
 	virtual HWND setWindowHandle(HWND handle);
 
 public:
-	virtual LRESULT WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT onMessage(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam);
 };
 
 

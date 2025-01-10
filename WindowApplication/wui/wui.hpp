@@ -2,11 +2,13 @@
 
 #include "AppModule.hpp"
 
-#include "WindowMessageLoop.hpp"
+#include "MessageLoop.hpp"
 
 #include "WindowClass.hpp"
 #include "WindowProc.hpp"
 #include "Window.hpp"
 
+#include "WindowStyle.hpp"
+#include "BasicWindow.hpp"
 
 

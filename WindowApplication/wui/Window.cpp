@@ -36,7 +36,12 @@ HWND Window::setWindowHandle(HWND handle)
 	return _WindowHandle;
 }
 
-LRESULT Window::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+LRESULT Window::onMessage(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+{
+	return callWindowProc(hwnd, umsg, wparam, lparam);
+}
+
+LRESULT Window::callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
 	return ::DefWindowProcW(hwnd, umsg, wparam, lparam);
 }
