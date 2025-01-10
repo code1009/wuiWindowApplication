@@ -56,9 +56,9 @@ MainFrame::~MainFrame()
 
 void MainFrame::registerWindowMessageHandler(void)
 {
-	_WindowMessageMap.on(WM_CREATE) = &MainFrame::onCreate;
-	_WindowMessageMap.on(WM_DESTROY) = &MainFrame::onDestroy;
-	_WindowMessageMap.on(WM_CLOSE) = &MainFrame::onClose;
+	_WindowMessageMap.handle(WM_CREATE) = &MainFrame::onCreate;
+	_WindowMessageMap.handle(WM_DESTROY) = &MainFrame::onDestroy;
+	_WindowMessageMap.handle(WM_CLOSE) = &MainFrame::onClose;
 }
 
 void MainFrame::onCreate(wui::WindowMessage& windowMessage)

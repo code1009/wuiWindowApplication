@@ -37,7 +37,7 @@ public:
 	}
 
 public:
-	WindowMessageHandler& on(std::uint32_t umsg)
+	WindowMessageHandler& handle(std::uint32_t umsg)
 	{
 		return _WindowMessageMapContainer[umsg];
 	}
