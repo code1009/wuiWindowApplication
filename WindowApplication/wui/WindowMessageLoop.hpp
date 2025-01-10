@@ -17,23 +17,23 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class MessageLoop
+class WindowMessageLoop
 {
 private:
 	std::vector< std::function<void(void)> > _idleHandlers;
 
 public:
-	MessageLoop() = default;
+	WindowMessageLoop() = default;
 
 public:
-	virtual ~MessageLoop() = default;
+	virtual ~WindowMessageLoop() = default;
 
 public:
-	MessageLoop(const MessageLoop&) = delete;
-	MessageLoop& operator=(const MessageLoop&) = delete;
+	WindowMessageLoop(const WindowMessageLoop&) = delete;
+	WindowMessageLoop& operator=(const WindowMessageLoop&) = delete;
 
-	MessageLoop(MessageLoop&&) = delete;
-	MessageLoop& operator=(MessageLoop&&) = delete;
+	WindowMessageLoop(WindowMessageLoop&&) = delete;
+	WindowMessageLoop& operator=(WindowMessageLoop&&) = delete;
 
 public:
 	virtual void addIdleHandler(std::function<void(void)> handler);

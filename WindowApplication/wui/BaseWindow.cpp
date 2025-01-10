@@ -20,7 +20,7 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-LRESULT SubclassWindow::callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+LRESULT BaseSubclassWindow::callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
 	LRESULT lResult;
 
@@ -45,7 +45,7 @@ LRESULT SubclassWindow::callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPAR
 }
 
 //===========================================================================
-WNDPROC SubclassWindow::subclassWindow(HWND hwnd)
+WNDPROC BaseSubclassWindow::subclassWindow(HWND hwnd)
 {
 	//-----------------------------------------------------------------------
 #ifdef _DEBUG
@@ -77,7 +77,7 @@ WNDPROC SubclassWindow::subclassWindow(HWND hwnd)
 	return oldWindowProc;
 }
 
-WNDPROC SubclassWindow::unsubclassWindow(WNDPROC windowProc)
+WNDPROC BaseSubclassWindow::unsubclassWindow(WNDPROC windowProc)
 {
 	//-----------------------------------------------------------------------
 	if (nullptr == windowProc)
@@ -104,7 +104,7 @@ WNDPROC SubclassWindow::unsubclassWindow(WNDPROC windowProc)
 	return oldWindowProc;
 }
 
-WNDPROC SubclassWindow::getChainWindowProc(void)
+WNDPROC BaseSubclassWindow::getChainWindowProc(void)
 {
 	return _ChainWindowProc;
 }
@@ -115,7 +115,7 @@ WNDPROC SubclassWindow::getChainWindowProc(void)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-HWND BasicWindow::createWindow(
+HWND BaseWindow::createWindow(
 	LPCWSTR   lpClassName ,
 	HWND      hWndParent  ,
 	LPCWSTR   lpWindowName,
@@ -158,7 +158,7 @@ HWND BasicWindow::createWindow(
 	return handle;
 }
 
-HWND BasicWindow::createWindow(
+HWND BaseWindow::createWindow(
 	LPCWSTR     lpClassName ,
 	const RECT& rect        ,
 	HWND        hWndParent  ,
@@ -184,7 +184,7 @@ HWND BasicWindow::createWindow(
 	);
 }
 
-void BasicWindow::destroyWindow(void)
+void BaseWindow::destroyWindow(void)
 {
 	HWND handle;
 	BOOL rv;
@@ -209,18 +209,18 @@ void BasicWindow::destroyWindow(void)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-BasicModalTemplateDialog::BasicModalTemplateDialog(LPCWSTR templateName) :
+BaseModalTemplateDialog::BaseModalTemplateDialog(LPCWSTR templateName) :
 	_DialogTemplateName{ templateName }
 {
 }
 
-BasicModalTemplateDialog::BasicModalTemplateDialog(std::int32_t templateNameId) :
+BaseModalTemplateDialog::BaseModalTemplateDialog(std::int32_t templateNameId) :
 	_DialogTemplateName{ MAKEINTRESOURCEW(templateNameId) }
 {
 }
 
 //===========================================================================
-INT_PTR BasicModalTemplateDialog::doModal(
+INT_PTR BaseModalTemplateDialog::doModal(
 	HWND hwndParent,
 	HINSTANCE hInstance
 )
@@ -247,7 +247,7 @@ INT_PTR BasicModalTemplateDialog::doModal(
 	return rv;
 }
 
-void BasicModalTemplateDialog::endDialog(INT_PTR result)
+void BaseModalTemplateDialog::endDialog(INT_PTR result)
 {
 	BOOL rv;
 
@@ -255,7 +255,7 @@ void BasicModalTemplateDialog::endDialog(INT_PTR result)
 	rv = ::EndDialog(getWindowHandle(), result);
 	if (FALSE == rv)
 	{
-		throw std::runtime_error("BasicModalTemplateDialog::endDialog(): EndDialog() failed");
+		throw std::runtime_error("BaseModalTemplateDialog::endDialog(): EndDialog() failed");
 	}
 }
 
@@ -265,17 +265,17 @@ void BasicModalTemplateDialog::endDialog(INT_PTR result)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-BasicModelessTemplateDialog::BasicModelessTemplateDialog(LPCWSTR templateName) :
+BaseModelessTemplateDialog::BaseModelessTemplateDialog(LPCWSTR templateName) :
 	_DialogTemplateName{ templateName }
 {
 }
 
-BasicModelessTemplateDialog::BasicModelessTemplateDialog(std::int32_t templateNameId) :
+BaseModelessTemplateDialog::BaseModelessTemplateDialog(std::int32_t templateNameId) :
 	_DialogTemplateName{ MAKEINTRESOURCEW(templateNameId) }
 {
 }
 
-HWND BasicModelessTemplateDialog::createDialog(HWND hwndParent, HINSTANCE hInstance)
+HWND BaseModelessTemplateDialog::createDialog(HWND hwndParent, HINSTANCE hInstance)
 {
 	HWND hwnd;
 
@@ -291,7 +291,7 @@ HWND BasicModelessTemplateDialog::createDialog(HWND hwndParent, HINSTANCE hInsta
 	return hwnd;
 }
 
-void BasicModelessTemplateDialog::destroyDialog(void)
+void BaseModelessTemplateDialog::destroyDialog(void)
 {
 	HWND handle;
 	BOOL rv;
@@ -303,7 +303,7 @@ void BasicModelessTemplateDialog::destroyDialog(void)
 		rv = ::DestroyWindow(handle);
 		if (FALSE == rv)
 		{
-			throw std::runtime_error("BasicModelessTemplateDialog::destroyDialog(): DestroyWindow() failed");
+			throw std::runtime_error("BaseModelessTemplateDialog::destroyDialog(): DestroyWindow() failed");
 		}
 
 		setWindowHandle(nullptr);

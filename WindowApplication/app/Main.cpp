@@ -24,10 +24,10 @@ int APIENTRY wWinMain(
 	MainFrame mainFrame;
 
 
-	wui::MessageLoop messageLoop;
+	wui::WindowMessageLoop windowMessageLoop;
 
 
-	messageLoop.run();
+	windowMessageLoop.run();
 
 
 	return 0;

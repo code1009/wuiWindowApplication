@@ -15,7 +15,7 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class SubclassWindow : public Window
+class BaseSubclassWindow : public Window
 {
 private:
 	WNDPROC _ChainWindowProc{ nullptr };
@@ -39,7 +39,7 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class BasicWindow : public Window
+class BaseWindow : public Window
 {
 public:
 	virtual HWND createWindow(
@@ -76,14 +76,14 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class BasicModalTemplateDialog : public Window
+class BaseModalTemplateDialog : public Window
 {
 private:
 	LPCWSTR _DialogTemplateName{ nullptr };
 
 public:
-	explicit BasicModalTemplateDialog(LPCWSTR templateName);
-	explicit BasicModalTemplateDialog(std::int32_t templateNameId);
+	explicit BaseModalTemplateDialog(LPCWSTR templateName);
+	explicit BaseModalTemplateDialog(std::int32_t templateNameId);
 
 public:
 	virtual INT_PTR doModal(
@@ -100,14 +100,14 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class BasicModelessTemplateDialog : public Window
+class BaseModelessTemplateDialog : public Window
 {
 private:
 	LPCWSTR _DialogTemplateName{ nullptr };
 
 public:
-	explicit BasicModelessTemplateDialog(LPCWSTR templateName);
-	explicit BasicModelessTemplateDialog(std::int32_t templateNameId);
+	explicit BaseModelessTemplateDialog(LPCWSTR templateName);
+	explicit BaseModelessTemplateDialog(std::int32_t templateNameId);
 
 public:
 	virtual HWND createDialog(HWND hwndParent, HINSTANCE hInstance = nullptr);

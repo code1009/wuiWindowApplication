@@ -20,13 +20,13 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-void MessageLoop::addIdleHandler(std::function<void(void)> handler)
+void WindowMessageLoop::addIdleHandler(std::function<void(void)> handler)
 {
 	_idleHandlers.push_back(handler);
 }
 
 //===========================================================================
-void MessageLoop::run(void)
+void WindowMessageLoop::run(void)
 {
 	//-----------------------------------------------------------------------
 	MSG msg;
@@ -48,7 +48,7 @@ void MessageLoop::run(void)
 	} while (msg.message != WM_QUIT);
 }
 
-void MessageLoop::onIdle(void)
+void WindowMessageLoop::onIdle(void)
 {
 	for (auto& handler : _idleHandlers)
 	{
