@@ -29,6 +29,7 @@
     <ClInclude Include="wui\BaseWindow.hpp" />
     <ClInclude Include="wui\MessageMapWindow.hpp" />
     <ClInclude Include="wui\pch.hpp" />
+    <ClInclude Include="wui\WindowMessageCrack.hpp" />
     <ClInclude Include="wui\Window.hpp" />
     <ClInclude Include="wui\WindowClass.hpp" />
     <ClInclude Include="wui\WindowMessageHandler.hpp" />
@@ -48,6 +49,7 @@
     <ClCompile Include="app\Window\MainFrame.cpp" />
     <ClCompile Include="wui\AppModule.cpp" />
     <ClCompile Include="wui\BaseWindow.cpp" />
+    <ClCompile Include="wui\WindowMessageCrack.cpp" />
     <ClCompile Include="wui\Window.cpp" />
     <ClCompile Include="wui\WindowClass.cpp" />
     <ClCompile Include="wui\WindowMessageLoop.cpp" />

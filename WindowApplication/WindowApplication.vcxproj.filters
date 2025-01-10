@@ -72,6 +72,9 @@
     <ClInclude Include="wui\wui.hpp">
       <Filter>wui</Filter>
     </ClInclude>
+    <ClInclude Include="wui\WindowMessageCrack.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\Main.cpp">
@@ -102,6 +105,9 @@
       <Filter>wui</Filter>
     </ClCompile>
     <ClCompile Include="wui\WindowProc.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowMessageCrack.cpp">
       <Filter>wui</Filter>
     </ClCompile>
   </ItemGroup>

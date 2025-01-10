@@ -12,7 +12,14 @@ public:
 	MainFrame();
 	virtual ~MainFrame();
 
+	//-----------------------------------------------------------------------
+	// wui::MessageMapWindow<MainFrame, wui::BaseWindow>
 public:
+	virtual void registerWindowMessageHandler(void) override;
+
+	//-----------------------------------------------------------------------
+public:
+	void onCreate(wui::WindowMessage& windowMessage);
 	void onDestroy(wui::WindowMessage& windowMessage);
 	void onClose(wui::WindowMessage& windowMessage);
 };

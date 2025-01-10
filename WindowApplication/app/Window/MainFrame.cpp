@@ -27,8 +27,7 @@ constexpr LPCWSTR MainFrame_ClassName = L"MainFrame";
 MainFrame::MainFrame()
 {
 	//-----------------------------------------------------------------------
-	_WindowMessageMap.on(WM_DESTROY) = &MainFrame::onDestroy;
-	_WindowMessageMap.on(WM_CLOSE) = &MainFrame::onClose;
+	registerWindowMessageHandler();
 
 
 	//-----------------------------------------------------------------------
@@ -53,6 +52,20 @@ MainFrame::MainFrame()
 
 MainFrame::~MainFrame()
 {
+}
+
+void MainFrame::registerWindowMessageHandler(void)
+{
+	_WindowMessageMap.on(WM_CREATE) = &MainFrame::onCreate;
+	_WindowMessageMap.on(WM_DESTROY) = &MainFrame::onDestroy;
+	_WindowMessageMap.on(WM_CLOSE) = &MainFrame::onClose;
+}
+
+void MainFrame::onCreate(wui::WindowMessage& windowMessage)
+{
+	wui::WM_CREATE_WindowMessageCrack wm { windowMessage };
+
+	::MessageBox(*this, L"Hello, Windows!", wm.lpCreateStruct()->lpszClass, MB_OK);
 }
 
 void MainFrame::onDestroy(wui::WindowMessage& windowMessage)

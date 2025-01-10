@@ -28,8 +28,14 @@ public:
 	{
 		WindowMessage windowMessage{ hwnd, umsg, wparam, lparam };
 
+		return onWindowMessage(windowMessage);
+	}
 
-		if (_WindowMessageMap.onWindowMessage(static_cast<TWindow*>(this), windowMessage))
+	//-----------------------------------------------------------------------
+public:
+	virtual LRESULT onWindowMessage(WindowMessage& windowMessage)
+	{
+		if (callWindowMessageMapHandler(windowMessage))
 		{
 			return windowMessage.lResult;
 		}
@@ -37,8 +43,11 @@ public:
 		return static_cast<TWindow*>(this)->callWindowProc(windowMessage);
 	}
 
-	//-----------------------------------------------------------------------
-public:
+	virtual bool callWindowMessageMapHandler(WindowMessage& windowMessage)
+	{
+		return _WindowMessageMap.onWindowMessage(static_cast<TWindow*>(this), windowMessage);
+	}
+
 	virtual LRESULT callWindowProc(WindowMessage& windowMessage)
 	{
 		windowMessage.lResult = 
@@ -51,6 +60,9 @@ public:
 
 		return windowMessage.lResult;
 	}
+
+public:
+	virtual void registerWindowMessageHandler(void) = 0;
 };
 
 

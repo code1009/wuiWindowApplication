@@ -9,12 +9,15 @@
 // Windows 헤더 파일
 #include <windows.h>
 
+#include <windowsx.h>
+
 // C 런타임 헤더 파일입니다.
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
 
+// C++ 런타임 헤더 파일입니다.
 #include <string>
 #include <vector>
 #include <map>
