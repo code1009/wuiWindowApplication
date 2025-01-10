@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="app">
+      <UniqueIdentifier>{2ebe35dd-8558-4b55-b528-aea6d852abd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wui">
+      <UniqueIdentifier>{7d86510b-55d7-466b-81ef-8bba3be869c3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\framework.hpp">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="app\Main.hpp">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="app\pch.hpp">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="app\targetver.hpp">
+      <Filter>app</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\Main.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="app\pch.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
