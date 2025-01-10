@@ -12,3 +12,11 @@
 #include "BaseWindow.hpp"
 
 #include "WindowMessage.hpp"
+#include "WindowMessageHandler.hpp"
+#include "WindowMessageMap.hpp"
+#include "MessageMapWindow.hpp"
+
+
+
+
+

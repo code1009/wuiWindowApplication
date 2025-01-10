@@ -27,11 +27,14 @@
     <ClInclude Include="res\Resource.h" />
     <ClInclude Include="wui\AppModule.hpp" />
     <ClInclude Include="wui\BaseWindow.hpp" />
+    <ClInclude Include="wui\MessageMapWindow.hpp" />
     <ClInclude Include="wui\pch.hpp" />
     <ClInclude Include="wui\Window.hpp" />
     <ClInclude Include="wui\WindowClass.hpp" />
+    <ClInclude Include="wui\WindowMessageHandler.hpp" />
     <ClInclude Include="wui\WindowMessageLoop.hpp" />
     <ClInclude Include="wui\WindowMessage.hpp" />
+    <ClInclude Include="wui\WindowMessageMap.hpp" />
     <ClInclude Include="wui\WindowProc.hpp" />
     <ClInclude Include="wui\WindowStyle.hpp" />
     <ClInclude Include="wui\wui.hpp" />

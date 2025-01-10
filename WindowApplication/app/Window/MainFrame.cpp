@@ -26,6 +26,10 @@ constexpr LPCWSTR MainFrame_ClassName = L"MainFrame";
 //===========================================================================
 MainFrame::MainFrame()
 {
+	_WindowMessageMap.on(WM_DESTROY) = &MainFrame::onDestroy;
+	_WindowMessageMap.on(WM_CLOSE) = &MainFrame::onClose;
+
+
 	wui::WindowClass windowClass;
 
 
@@ -45,4 +49,14 @@ MainFrame::MainFrame()
 
 MainFrame::~MainFrame()
 {
+}
+
+void MainFrame::onDestroy(wui::WindowMessage& windowMessage)
+{
+	::PostQuitMessage(0);
+}
+
+void MainFrame::onClose(wui::WindowMessage& windowMessage)
+{
+	destroyWindow();
 }

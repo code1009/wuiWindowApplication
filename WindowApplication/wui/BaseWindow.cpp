@@ -209,14 +209,14 @@ void BaseWindow::destroyWindow(void)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-BaseModalTemplateDialog::BaseModalTemplateDialog(LPCWSTR templateName) :
-	_DialogTemplateName{ templateName }
+void BaseModalTemplateDialog::setTemplateName(LPCWSTR templateName)
 {
+	_DialogTemplateName = templateName;
 }
 
-BaseModalTemplateDialog::BaseModalTemplateDialog(std::int32_t templateNameId) :
-	_DialogTemplateName{ MAKEINTRESOURCEW(templateNameId) }
+void BaseModalTemplateDialog::setTemplateName(std::int32_t templateNameId)
 {
+	setTemplateName(MAKEINTRESOURCEW(templateNameId));
 }
 
 //===========================================================================
@@ -265,14 +265,14 @@ void BaseModalTemplateDialog::endDialog(INT_PTR result)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-BaseModelessTemplateDialog::BaseModelessTemplateDialog(LPCWSTR templateName) :
-	_DialogTemplateName{ templateName }
+void BaseModelessTemplateDialog::setTemplateName(LPCWSTR templateName)
 {
+	_DialogTemplateName = templateName;
 }
 
-BaseModelessTemplateDialog::BaseModelessTemplateDialog(std::int32_t templateNameId) :
-	_DialogTemplateName{ MAKEINTRESOURCEW(templateNameId) }
+void BaseModelessTemplateDialog::setTemplateName(std::int32_t templateNameId)
 {
+	setTemplateName(MAKEINTRESOURCEW(templateNameId));
 }
 
 HWND BaseModelessTemplateDialog::createDialog(HWND hwndParent, HINSTANCE hInstance)

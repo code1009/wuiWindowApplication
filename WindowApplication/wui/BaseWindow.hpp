@@ -82,8 +82,8 @@ private:
 	LPCWSTR _DialogTemplateName{ nullptr };
 
 public:
-	explicit BaseModalTemplateDialog(LPCWSTR templateName);
-	explicit BaseModalTemplateDialog(std::int32_t templateNameId);
+	void setTemplateName(LPCWSTR templateName);
+	void setTemplateName(std::int32_t templateNameId);
 
 public:
 	virtual INT_PTR doModal(
@@ -106,8 +106,8 @@ private:
 	LPCWSTR _DialogTemplateName{ nullptr };
 
 public:
-	explicit BaseModelessTemplateDialog(LPCWSTR templateName);
-	explicit BaseModelessTemplateDialog(std::int32_t templateNameId);
+	void setTemplateName(LPCWSTR templateName);
+	void setTemplateName(std::int32_t templateNameId);
 
 public:
 	virtual HWND createDialog(HWND hwndParent, HINSTANCE hInstance = nullptr);
