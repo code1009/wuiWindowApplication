@@ -22,6 +22,8 @@ public:
 	UINT    uMsg;
 	WPARAM  wParam;
 	LPARAM  lParam;
+
+public:
 	LRESULT lResult;
 
 public:

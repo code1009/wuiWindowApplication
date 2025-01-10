@@ -15,7 +15,7 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class AppModule final
+class AppModule
 {
 private:
 	HINSTANCE _InstanceHandle{ nullptr };

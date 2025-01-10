@@ -21,6 +21,7 @@ class MessageMapWindow : public TBaseWindow
 protected:
 	WindowMessageMapT<TWindow> _WindowMessageMap;
 
+	//-----------------------------------------------------------------------
 	// Window
 public:
 	virtual LRESULT onMessage(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) override
@@ -36,6 +37,8 @@ public:
 		return static_cast<TWindow*>(this)->callWindowProc(windowMessage);
 	}
 
+	//-----------------------------------------------------------------------
+public:
 	virtual LRESULT callWindowProc(WindowMessage& windowMessage)
 	{
 		windowMessage.lResult = 
