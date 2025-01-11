@@ -46,15 +46,15 @@ void WindowClass::registerWindowClass(
 	_WindowClassStructure.cbSize        = sizeof(_WindowClassStructure);
 	//_WindowClassStructure.style       = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS
 	_WindowClassStructure.style         = style;
+	_WindowClassStructure.lpfnWndProc   = WindowProc;
 	_WindowClassStructure.cbClsExtra    = 0;
 	_WindowClassStructure.cbWndExtra    = 0;
 	_WindowClassStructure.hInstance     = hInstance;
-	_WindowClassStructure.lpfnWndProc   = WindowProc;
-	_WindowClassStructure.lpszClassName = className;
-	_WindowClassStructure.lpszMenuName  = MAKEINTRESOURCEW(idMenu);
-	_WindowClassStructure.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
-	_WindowClassStructure.hCursor       = ::LoadCursorW(nullptr, MAKEINTRESOURCEW(idCursor));
 	_WindowClassStructure.hIcon         = ::LoadIconW(hInstance, MAKEINTRESOURCEW(idIcon));
+	_WindowClassStructure.hCursor       = ::LoadCursorW(hInstance, MAKEINTRESOURCEW(idCursor));
+	_WindowClassStructure.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
+	_WindowClassStructure.lpszMenuName  = MAKEINTRESOURCEW(idMenu);
+	_WindowClassStructure.lpszClassName = className;
 	_WindowClassStructure.hIconSm       = ::LoadIconW(hInstance, MAKEINTRESOURCEW(idSmallIcon));
 
 

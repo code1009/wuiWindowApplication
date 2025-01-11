@@ -27,7 +27,7 @@ constexpr LPCWSTR MainFrame_WindowClassName = L"MainFrame";
 MainFrame::MainFrame()
 {
 	//-----------------------------------------------------------------------
-	registerWindowMessageHandler();
+	registerWindowMessageMapHandler();
 
 
 	//-----------------------------------------------------------------------
@@ -54,7 +54,7 @@ MainFrame::~MainFrame()
 {
 }
 
-void MainFrame::registerWindowMessageHandler(void)
+void MainFrame::registerWindowMessageMapHandler(void)
 {
 	_WindowMessageMap.handle(WM_CREATE) = &MainFrame::onCreate;
 	_WindowMessageMap.handle(WM_DESTROY) = &MainFrame::onDestroy;

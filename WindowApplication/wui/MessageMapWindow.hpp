@@ -62,7 +62,7 @@ public:
 	}
 
 public:
-	virtual void registerWindowMessageHandler(void) = 0;
+	virtual void registerWindowMessageMapHandler(void) = 0;
 };
 
 

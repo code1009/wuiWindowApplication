@@ -15,7 +15,7 @@ public:
 	//-----------------------------------------------------------------------
 	// wui::MessageMapWindow<MainFrame, wui::BaseWindow>
 public:
-	virtual void registerWindowMessageHandler(void) override;
+	virtual void registerWindowMessageMapHandler(void) override;
 
 	//-----------------------------------------------------------------------
 public:
