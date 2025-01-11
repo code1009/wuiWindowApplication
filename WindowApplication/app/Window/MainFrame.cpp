@@ -72,40 +72,24 @@ void MainFrame::onCreate(wui::WindowMessage& windowMessage)
 
 
 	::MessageBox(*this, L"Hello, Windows!", wm.lpCreateStruct()->lpszClass, MB_OK);
-
-	wm.Result(0);
 }
 
 void MainFrame::onDestroy(wui::WindowMessage& windowMessage)
 {
-	wui::WM_DESTROY_WindowMessageCrack wm{ windowMessage };
-
-
 	::PostQuitMessage(0);
-
-	wm.Result();
 }
 
 void MainFrame::onClose(wui::WindowMessage& windowMessage)
 {
-	wui::WM_CLOSE_WindowMessageCrack wm{ windowMessage };
-
-
 	destroyWindow();
-
-	wm.Result();
 }
 
 void MainFrame::onPaint(wui::WindowMessage& windowMessage)
 {
-	wui::WM_PAINT_WindowMessageCrack wm{ windowMessage };
-
-
 	wui::PaintDC paintDC{ *this };
 	
-	::TextOutW(paintDC, 10, 10, L"Hello, Windows!", 15);
 
-	wm.Result();
+	::TextOutW(paintDC, 10, 10, L"Hello, Windows!", 15);
 }
 
 void MainFrame::onEraseBkgnd(wui::WindowMessage& windowMessage)
