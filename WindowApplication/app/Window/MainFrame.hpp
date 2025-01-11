@@ -22,4 +22,6 @@ public:
 	void onCreate(wui::WindowMessage& windowMessage);
 	void onDestroy(wui::WindowMessage& windowMessage);
 	void onClose(wui::WindowMessage& windowMessage);
+	void onPaint(wui::WindowMessage& windowMessage);
+	void onEraseBkgnd(wui::WindowMessage& windowMessage);
 };

@@ -27,8 +27,14 @@
     <ClInclude Include="res\Resource.h" />
     <ClInclude Include="wui\AppModule.hpp" />
     <ClInclude Include="wui\BaseWindow.hpp" />
+    <ClInclude Include="wui\Coord.hpp" />
+    <ClInclude Include="wui\DC.hpp" />
+    <ClInclude Include="wui\DCFunction.hpp" />
+    <ClInclude Include="wui\GDIObject.hpp" />
     <ClInclude Include="wui\MessageMapWindow.hpp" />
     <ClInclude Include="wui\pch.hpp" />
+    <ClInclude Include="wui\ResFunction.hpp" />
+    <ClInclude Include="wui\WindowFunction.hpp" />
     <ClInclude Include="wui\WindowMessageCrack.hpp" />
     <ClInclude Include="wui\Window.hpp" />
     <ClInclude Include="wui\WindowClass.hpp" />
@@ -49,6 +55,12 @@
     <ClCompile Include="app\Window\MainFrame.cpp" />
     <ClCompile Include="wui\AppModule.cpp" />
     <ClCompile Include="wui\BaseWindow.cpp" />
+    <ClCompile Include="wui\Coord.cpp" />
+    <ClCompile Include="wui\DC.cpp" />
+    <ClCompile Include="wui\DCFunction.cpp" />
+    <ClCompile Include="wui\GDIObject.cpp" />
+    <ClCompile Include="wui\ResFunction.cpp" />
+    <ClCompile Include="wui\WindowFunction.cpp" />
     <ClCompile Include="wui\WindowMessageCrack.cpp" />
     <ClCompile Include="wui\Window.cpp" />
     <ClCompile Include="wui\WindowClass.cpp" />

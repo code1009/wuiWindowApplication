@@ -18,5 +18,13 @@
 
 #include "WindowMessageCrack.hpp"
 
+#include "WindowFunction.hpp"
 
+#include "Coord.hpp"
 
+#include "DC.hpp"
+#include "DCFunction.hpp"
+
+#include "GDIObject.hpp"
+
+#include "ResFunction.hpp"

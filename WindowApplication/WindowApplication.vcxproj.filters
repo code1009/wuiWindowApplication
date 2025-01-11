@@ -75,6 +75,24 @@
     <ClInclude Include="wui\WindowMessageCrack.hpp">
       <Filter>wui</Filter>
     </ClInclude>
+    <ClInclude Include="wui\Coord.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\DC.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\DCFunction.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\WindowFunction.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\GDIObject.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\ResFunction.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\Main.cpp">
@@ -108,6 +126,24 @@
       <Filter>wui</Filter>
     </ClCompile>
     <ClCompile Include="wui\WindowMessageCrack.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\Coord.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\DC.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\DCFunction.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\WindowFunction.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\GDIObject.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\ResFunction.cpp">
       <Filter>wui</Filter>
     </ClCompile>
   </ItemGroup>
