@@ -15,30 +15,6 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-class BaseSubclassWindow : public Window
-{
-private:
-	WNDPROC _ChainWindowProc{ nullptr };
-
-	//-----------------------------------------------------------------------
-	// Window
-public:
-	virtual LRESULT callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) override;
-
-	//-----------------------------------------------------------------------
-public:
-	virtual WNDPROC subclassWindow(HWND hwnd);
-	virtual WNDPROC unsubclassWindow(WNDPROC windowProc = nullptr);
-
-public:
-	virtual WNDPROC getChainWindowProc(void);
-};
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////
-//===========================================================================
 class BaseWindow : public Window
 {
 public:
@@ -70,6 +46,30 @@ public:
 	virtual void destroyWindow(void);
 };
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+class BaseSubclassWindow : public Window
+{
+private:
+	WNDPROC _ChainWindowProc{ nullptr };
+
+	//-----------------------------------------------------------------------
+	// Window
+public:
+	virtual LRESULT callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) override;
+
+	//-----------------------------------------------------------------------
+public:
+	virtual WNDPROC subclassWindow(HWND hwnd);
+	virtual WNDPROC unsubclassWindow(WNDPROC windowProc = nullptr);
+
+public:
+	virtual WNDPROC getChainWindowProc(void);
+};
 
 
 

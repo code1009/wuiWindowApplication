@@ -20,6 +20,100 @@ namespace wui
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+HWND BaseWindow::createWindow(
+	LPCWSTR   lpClassName,
+	HWND      hWndParent,
+	LPCWSTR   lpWindowName,
+	DWORD     dwStyle,
+	DWORD     dwExStyle,
+	int       X,
+	int       Y,
+	int       nWidth,
+	int       nHeight,
+	HMENU     hMenu,
+	HINSTANCE hInstance
+)
+{
+	//-----------------------------------------------------------------------
+	if (nullptr == hInstance)
+	{
+		hInstance = getAppModule()->getInstanceHandle();
+	}
+
+
+	//-----------------------------------------------------------------------
+	HWND handle;
+
+
+	handle = ::CreateWindowExW(
+		dwExStyle,
+		lpClassName,
+		lpWindowName,
+		dwStyle,
+		X,
+		Y,
+		nWidth,
+		nHeight,
+		hWndParent,
+		hMenu,
+		hInstance,
+		this
+	);
+
+	return handle;
+}
+
+HWND BaseWindow::createWindow(
+	LPCWSTR     lpClassName,
+	const RECT& rect,
+	HWND        hWndParent,
+	LPCWSTR     lpWindowName,
+	DWORD       dwStyle,
+	DWORD       dwExStyle,
+	HMENU       hMenu,
+	HINSTANCE   hInstance
+)
+{
+	return createWindow(
+		lpClassName,
+		hWndParent,
+		lpWindowName,
+		dwStyle,
+		dwExStyle,
+		rect.left,
+		rect.top,
+		rect.right - rect.left,
+		rect.bottom - rect.top,
+		hMenu,
+		hInstance
+	);
+}
+
+void BaseWindow::destroyWindow(void)
+{
+	HWND handle;
+	BOOL rv;
+
+
+	handle = getWindowHandle();
+	if (handle)
+	{
+		rv = ::DestroyWindow(handle);
+		if (FALSE == rv)
+		{
+			throw std::runtime_error("BasicWindow::destroyWindow(): DestroyWindow() failed");
+		}
+
+		setWindowHandle(nullptr);
+	}
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
 LRESULT BaseSubclassWindow::callWindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
 	LRESULT lResult;
@@ -107,100 +201,6 @@ WNDPROC BaseSubclassWindow::unsubclassWindow(WNDPROC windowProc)
 WNDPROC BaseSubclassWindow::getChainWindowProc(void)
 {
 	return _ChainWindowProc;
-}
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////
-//===========================================================================
-HWND BaseWindow::createWindow(
-	LPCWSTR   lpClassName ,
-	HWND      hWndParent  ,
-	LPCWSTR   lpWindowName,
-	DWORD     dwStyle     ,
-	DWORD     dwExStyle   ,
-	int       X           ,
-	int       Y           ,
-	int       nWidth      ,
-	int       nHeight     ,
-	HMENU     hMenu       ,
-	HINSTANCE hInstance
-)
-{
-	//-----------------------------------------------------------------------
-	if (nullptr == hInstance)
-	{
-		hInstance = getAppModule()->getInstanceHandle();
-	}
-
-
-	//-----------------------------------------------------------------------
-	HWND handle;
-
-
-	handle = ::CreateWindowExW(
-		dwExStyle,
-		lpClassName,
-		lpWindowName,
-		dwStyle,
-		X,
-		Y,
-		nWidth,
-		nHeight,
-		hWndParent,
-		hMenu,
-		hInstance,
-		this
-	);
-
-	return handle;
-}
-
-HWND BaseWindow::createWindow(
-	LPCWSTR     lpClassName ,
-	const RECT& rect        ,
-	HWND        hWndParent  ,
-	LPCWSTR     lpWindowName,
-	DWORD       dwStyle     ,
-	DWORD       dwExStyle   ,
-	HMENU       hMenu       ,
-	HINSTANCE   hInstance   
-)
-{
-	return createWindow(
-		lpClassName,
-		hWndParent,
-		lpWindowName,
-		dwStyle,
-		dwExStyle,
-		rect.left,
-		rect.top,
-		rect.right - rect.left,
-		rect.bottom - rect.top,
-		hMenu,
-		hInstance
-	);
-}
-
-void BaseWindow::destroyWindow(void)
-{
-	HWND handle;
-	BOOL rv;
-
-
-	handle = getWindowHandle();
-	if (handle)
-	{
-		rv = ::DestroyWindow(handle);
-		if (FALSE == rv)
-		{
-			throw std::runtime_error("BasicWindow::destroyWindow(): DestroyWindow() failed");
-		}
-
-		setWindowHandle(nullptr);
-	}
 }
 
 
