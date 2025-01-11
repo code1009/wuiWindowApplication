@@ -60,8 +60,10 @@ void MainFrame::registerWindowMessageMapHandler(void)
 	_WindowMessageMap.handle(WM_DESTROY) = &MainFrame::onDestroy;
 	_WindowMessageMap.handle(WM_CLOSE) = &MainFrame::onClose;
 
-	_WindowMessageMap.handle(WM_PAINT) = &MainFrame::onDestroy;
-	_WindowMessageMap.handle(WM_ERASEBKGND) = &MainFrame::onClose;
+	_WindowMessageMap.handle(WM_PAINT) = &MainFrame::onPaint;
+	_WindowMessageMap.handle(WM_ERASEBKGND) = &MainFrame::onEraseBkgnd;
+
+	_WindowMessageMap.handle(WM_COMMAND) = &MainFrame::onCommand;
 }
 
 void MainFrame::onCreate(wui::WindowMessage& windowMessage)
@@ -99,7 +101,9 @@ void MainFrame::onPaint(wui::WindowMessage& windowMessage)
 	wui::WM_PAINT_WindowMessageCrack wm{ windowMessage };
 
 
-	wm.hdc();
+	wui::PaintDC paintDC{ *this };
+	
+	::TextOutW(paintDC, 10, 10, L"Hello, Windows!", 15);
 
 	wm.Result();
 }
@@ -110,4 +114,49 @@ void MainFrame::onEraseBkgnd(wui::WindowMessage& windowMessage)
 
 
 	wm.Result(TRUE);
+}
+
+void MainFrame::onCommand(wui::WindowMessage& windowMessage)
+{
+	wui::WM_COMMAND_WindowMessageCrack wm{ windowMessage };
+
+
+	if (wm.wndCtl() == nullptr)
+	{
+		onMenuCommand(windowMessage);
+	}
+	else
+	{
+		onCtlCommand(windowMessage);
+	}
+}
+
+void MainFrame::onMenuCommand(wui::WindowMessage& windowMessage)
+{
+	wui::WM_COMMAND_WindowMessageCrack wm{ windowMessage };
+
+
+	switch (wm.nID())
+	{
+	case IDM_ABOUT:
+		::MessageBox(*this, L"WindowApplication", L"About", MB_OK);
+		break;
+
+	case IDM_EXIT:
+		::PostMessage(*this, WM_CLOSE, 0, 0);
+		break;
+	}
+}
+
+void MainFrame::onCtlCommand(wui::WindowMessage& windowMessage)
+{
+	wui::WM_COMMAND_WindowMessageCrack wm{ windowMessage };
+
+
+	switch (wm.nID())
+	{
+	case IDC_WINDOWAPPLICATION:
+		::MessageBox(*this, L"WindowApplication", L"WindowApplication", MB_OK);
+		break;
+	}
 }

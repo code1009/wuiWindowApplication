@@ -24,4 +24,7 @@ public:
 	void onClose(wui::WindowMessage& windowMessage);
 	void onPaint(wui::WindowMessage& windowMessage);
 	void onEraseBkgnd(wui::WindowMessage& windowMessage);
+	void onCommand(wui::WindowMessage& windowMessage);
+	void onMenuCommand(wui::WindowMessage& windowMessage);
+	void onCtlCommand(wui::WindowMessage& windowMessage);
 };
