@@ -314,6 +314,104 @@ void BaseModelessTemplateDialog::destroyDialog(void)
 
 
 
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+void BaseModalIndirectDialog::setTemplate(LPCDLGTEMPLATE templatePtr)
+{
+	_DialogTemplate = templatePtr;
+}
+
+//===========================================================================
+INT_PTR BaseModalIndirectDialog::doModal(
+	HWND hwndParent,
+	HINSTANCE hInstance
+)
+{
+	//-----------------------------------------------------------------------
+	if (nullptr == hInstance)
+	{
+		hInstance = getAppModule()->getInstanceHandle();
+	}
+
+
+	//-----------------------------------------------------------------------
+	std::int64_t rv;
+
+
+	rv = ::DialogBoxIndirectParamW(
+		hInstance,
+		_DialogTemplate,
+		hwndParent,
+		DialogProc,
+		reinterpret_cast<LPARAM>(this)
+	);
+
+	return rv;
+}
+
+void BaseModalIndirectDialog::endDialog(INT_PTR result)
+{
+	BOOL rv;
+
+
+	rv = ::EndDialog(getWindowHandle(), result);
+	if (FALSE == rv)
+	{
+		throw std::runtime_error("BaseModalIndirectDialog::endDialog(): EndDialog() failed");
+	}
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+void BaseModelessIndirectDialog::setTemplate(LPCDLGTEMPLATE templatePtr)
+{
+	_DialogTemplate = templatePtr;
+}
+
+HWND BaseModelessIndirectDialog::createDialog(HWND hwndParent, HINSTANCE hInstance)
+{
+	HWND hwnd;
+
+
+	hwnd = ::CreateDialogIndirectParamW(
+		hInstance,
+		_DialogTemplate,
+		hwndParent,
+		DialogProc,
+		reinterpret_cast<LPARAM>(this)
+	);
+
+	return hwnd;
+}
+
+void BaseModelessIndirectDialog::destroyDialog(void)
+{
+	HWND handle;
+	BOOL rv;
+
+
+	handle = getWindowHandle();
+	if (handle)
+	{
+		rv = ::DestroyWindow(handle);
+		if (FALSE == rv)
+		{
+			throw std::runtime_error("BaseModelessIndirectDialog::destroyDialog(): DestroyWindow() failed");
+		}
+
+		setWindowHandle(nullptr);
+	}
+}
+
+
+
+
+
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
 }

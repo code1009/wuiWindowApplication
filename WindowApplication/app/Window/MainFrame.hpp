@@ -27,4 +27,7 @@ public:
 	void onCommand(wui::WindowMessage& windowMessage);
 	void onMenuCommand(wui::WindowMessage& windowMessage);
 	void onCtlCommand(wui::WindowMessage& windowMessage);
+
+public:
+	void onAppAbout(wui::WindowMessage& windowMessage);
 };

@@ -22,6 +22,7 @@
     <ClInclude Include="app\Framework.hpp" />
     <ClInclude Include="app\Main.hpp" />
     <ClInclude Include="app\pch.hpp" />
+    <ClInclude Include="app\Window\AboutBox.hpp" />
     <ClInclude Include="app\Window\MainFrame.hpp" />
     <ClInclude Include="app\Window\pch.hpp" />
     <ClInclude Include="res\Resource.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="wui\Coord.hpp" />
     <ClInclude Include="wui\DC.hpp" />
     <ClInclude Include="wui\DCFunction.hpp" />
+    <ClInclude Include="wui\DialogTemplate.hpp" />
     <ClInclude Include="wui\GDIObject.hpp" />
     <ClInclude Include="wui\MessageMapWindow.hpp" />
     <ClInclude Include="wui\pch.hpp" />
@@ -58,6 +60,7 @@
     <ClCompile Include="wui\Coord.cpp" />
     <ClCompile Include="wui\DC.cpp" />
     <ClCompile Include="wui\DCFunction.cpp" />
+    <ClCompile Include="wui\DialogTemplate.cpp" />
     <ClCompile Include="wui\GDIObject.cpp" />
     <ClCompile Include="wui\ResFunction.cpp" />
     <ClCompile Include="wui\WindowFunction.cpp" />

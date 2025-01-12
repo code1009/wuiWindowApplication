@@ -8,7 +8,7 @@
 
 //===========================================================================
 #include "MainFrame.hpp"
-
+#include "AboutBox.hpp"
 
 
 
@@ -56,14 +56,12 @@ MainFrame::~MainFrame()
 
 void MainFrame::registerWindowMessageMapHandler(void)
 {
-	_WindowMessageMap.handle(WM_CREATE) = &MainFrame::onCreate;
-	_WindowMessageMap.handle(WM_DESTROY) = &MainFrame::onDestroy;
-	_WindowMessageMap.handle(WM_CLOSE) = &MainFrame::onClose;
-
-	_WindowMessageMap.handle(WM_PAINT) = &MainFrame::onPaint;
-	_WindowMessageMap.handle(WM_ERASEBKGND) = &MainFrame::onEraseBkgnd;
-
-	_WindowMessageMap.handle(WM_COMMAND) = &MainFrame::onCommand;
+	_WindowMessageMap.handle(WM_CREATE)     = &MainFrame::onCreate;
+	_WindowMessageMap.handle(WM_DESTROY)    = &MainFrame::onDestroy;
+	_WindowMessageMap.handle(WM_CLOSE)      = &MainFrame::onClose;
+	_WindowMessageMap.handle(WM_PAINT)      = &MainFrame::onPaint;
+//	_WindowMessageMap.handle(WM_ERASEBKGND) = &MainFrame::onEraseBkgnd;
+	_WindowMessageMap.handle(WM_COMMAND)    = &MainFrame::onCommand;
 }
 
 void MainFrame::onCreate(wui::WindowMessage& windowMessage)
@@ -71,7 +69,7 @@ void MainFrame::onCreate(wui::WindowMessage& windowMessage)
 	wui::WM_CREATE_WindowMessageCrack wm { windowMessage };
 
 
-	::MessageBox(*this, L"Hello, Windows!", wm.lpCreateStruct()->lpszClass, MB_OK);
+	::MessageBoxW(*this, L"Hello, Windows!", wm.lpCreateStruct()->lpszClass, MB_OK);
 }
 
 void MainFrame::onDestroy(wui::WindowMessage& windowMessage)
@@ -97,7 +95,7 @@ void MainFrame::onEraseBkgnd(wui::WindowMessage& windowMessage)
 	wui::WM_ERASEBKGND_WindowMessageCrack wm{ windowMessage };
 
 
-	wm.Result(TRUE);
+	wm.Result(FALSE);
 }
 
 void MainFrame::onCommand(wui::WindowMessage& windowMessage)
@@ -123,13 +121,25 @@ void MainFrame::onMenuCommand(wui::WindowMessage& windowMessage)
 	switch (wm.nID())
 	{
 	case IDM_ABOUT:
-		::MessageBox(*this, L"WindowApplication", L"About", MB_OK);
+		onAppAbout(windowMessage);
 		break;
 
 	case IDM_EXIT:
 		::PostMessage(*this, WM_CLOSE, 0, 0);
 		break;
+
+	default:
+		callWindowProc(windowMessage);
+		break;
 	}
+}
+
+void MainFrame::onAppAbout(wui::WindowMessage& windowMessage)
+{
+	AboutBox aboutBox;
+
+
+	aboutBox.doModal(*this);
 }
 
 void MainFrame::onCtlCommand(wui::WindowMessage& windowMessage)
@@ -142,5 +152,8 @@ void MainFrame::onCtlCommand(wui::WindowMessage& windowMessage)
 	case IDC_WINDOWAPPLICATION:
 		::MessageBox(*this, L"WindowApplication", L"WindowApplication", MB_OK);
 		break;
+
+	default:
+		callWindowProc(windowMessage);
 	}
 }

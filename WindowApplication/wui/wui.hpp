@@ -7,7 +7,7 @@
 // Created by Eui-kwon, MOON.(code1009@naver.com)
 // Created on Jan-11th, 2025.
 //
-// - wui(Window User Interface) 라이브러리
+// - wui(Window User Interface) Library
 // - version 0.2.0.0
 // 
 /////////////////////////////////////////////////////////////////////////////
@@ -60,5 +60,6 @@
 // # GDI 객체
 #include "GDIObject.hpp"
 
-// # .rc 파일 리소스
+// # .rc 리소스
 #include "ResFunction.hpp"
+#include "DialogTemplate.hpp"

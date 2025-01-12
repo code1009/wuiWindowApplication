@@ -877,9 +877,9 @@ public:
 	HWND wndCtl(void){return (HWND)_WindowMessage.lParam;}
 
 public:
-	void Result(void)
+	void Result(LRESULT lv)
 	{
-		_WindowMessage.lResult = (LRESULT)0;
+		_WindowMessage.lResult = (LRESULT)lv;
 	}
 };
 

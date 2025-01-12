@@ -93,6 +93,12 @@
     <ClInclude Include="wui\ResFunction.hpp">
       <Filter>wui</Filter>
     </ClInclude>
+    <ClInclude Include="app\Window\AboutBox.hpp">
+      <Filter>app\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="wui\DialogTemplate.hpp">
+      <Filter>wui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\Main.cpp">
@@ -144,6 +150,9 @@
       <Filter>wui</Filter>
     </ClCompile>
     <ClCompile Include="wui\ResFunction.cpp">
+      <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="wui\DialogTemplate.cpp">
       <Filter>wui</Filter>
     </ClCompile>
   </ItemGroup>

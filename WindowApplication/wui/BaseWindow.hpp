@@ -117,6 +117,47 @@ public:
 
 
 
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+class BaseModalIndirectDialog : public Window
+{
+private:
+	LPCDLGTEMPLATE _DialogTemplate{ nullptr };
+
+public:
+	void setTemplate(LPCDLGTEMPLATE templatePtr);
+
+public:
+	virtual INT_PTR doModal(
+		HWND hwndParent,
+		HINSTANCE hinstance = nullptr
+	);
+
+	virtual void endDialog(INT_PTR result);
+};
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+class BaseModelessIndirectDialog : public Window
+{
+private:
+	LPCDLGTEMPLATE _DialogTemplate{ nullptr };
+
+public:
+	void setTemplate(LPCDLGTEMPLATE templatePtr);
+
+public:
+	virtual HWND createDialog(HWND hwndParent, HINSTANCE hInstance = nullptr);
+	virtual void destroyDialog(void);
+};
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
