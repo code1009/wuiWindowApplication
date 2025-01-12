@@ -51,6 +51,7 @@ void MyBox::registerWindowMessageMapHandler(void)
 {
 	_WindowMessageMap.handle(WM_INITDIALOG) = &MyBox::onInitDialog;
 	_WindowMessageMap.handle(WM_DESTROY) = &MyBox::onDestroy;
+	_WindowMessageMap.handle(WM_CLOSE) = &MyBox::onClose;
 	_WindowMessageMap.handle(WM_COMMAND) = &MyBox::onCommand;
 }
 
@@ -67,7 +68,13 @@ void MyBox::onInitDialog(wui::WindowMessage& windowMessage)
 
 void MyBox::onDestroy(wui::WindowMessage& windowMessage)
 {
-	MessageBoxW(*this, L"MyBox::onDestroy", L"MyBox", MB_OK);
+	OutputDebugStringW(L"MyBox::onDestroy\n");
+}
+
+void MyBox::onClose(wui::WindowMessage& windowMessage)
+{
+	::EndDialog(*this, IDCANCEL);
+	windowMessage.setResult(TRUE);
 }
 
 void MyBox::onCommand(wui::WindowMessage& windowMessage)

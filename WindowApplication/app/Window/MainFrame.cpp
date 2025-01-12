@@ -137,17 +137,19 @@ void MainFrame::onMenuCommand(wui::WindowMessage& windowMessage)
 
 void MainFrame::onAppAbout(wui::WindowMessage& windowMessage)
 {
+#if 0
 	AboutBox aboutBox;
 
 
 	aboutBox.doModal(*this);
 
-	/*
+#else
+
 	MyBox myBox;
 
 
 	myBox.doModal(*this);
-	*/
+#endif
 }
 
 void MainFrame::onCtlCommand(wui::WindowMessage& windowMessage)

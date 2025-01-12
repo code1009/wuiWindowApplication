@@ -28,6 +28,7 @@ public:
 	{
 		_WindowMessageMap.handle(WM_INITDIALOG) = &AboutBox::onInitDialog;
 		_WindowMessageMap.handle(WM_DESTROY)    = &AboutBox::onDestroy;
+		_WindowMessageMap.handle(WM_CLOSE)      = &AboutBox::onClose;
 		_WindowMessageMap.handle(WM_COMMAND)    = &AboutBox::onCommand;
 	}
 
@@ -45,7 +46,13 @@ public:
 
 	void onDestroy(wui::WindowMessage& windowMessage)
 	{
-		MessageBoxW(*this, L"AboutBox::onDestroy", L"AboutBox", MB_OK);
+		OutputDebugStringW(L"AboutBox::onDestroy\n");
+	}
+
+	void onClose(wui::WindowMessage& windowMessage)
+	{
+		::EndDialog(*this, IDCANCEL);
+		windowMessage.setResult(TRUE);
 	}
 
 	void onCommand(wui::WindowMessage& windowMessage)

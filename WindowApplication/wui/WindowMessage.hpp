@@ -42,6 +42,9 @@ public:
 
 	WindowMessage(WindowMessage&& other) noexcept;
 	WindowMessage& operator=(WindowMessage&& other) noexcept;
+
+public:
+	void setResult(LRESULT rv);
 };
 
 

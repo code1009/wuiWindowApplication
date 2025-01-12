@@ -92,6 +92,12 @@ WindowMessage& WindowMessage::operator=(WindowMessage&& other) noexcept
 	return *this;
 }
 
+//===========================================================================
+void WindowMessage::setResult(LRESULT rv)
+{
+	lResult = rv;
+}
+
 
 
 

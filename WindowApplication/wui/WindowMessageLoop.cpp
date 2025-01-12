@@ -35,6 +35,7 @@ void WindowMessageLoop::run(void)
 
 	do
 	{
+		//rv = ::GetMessageW(&msg, nullptr, 0, 0);
 		rv = ::PeekMessageW(&msg, HWND{}, 0, 0, PM_REMOVE);
 		if (rv != 0)
 		{
