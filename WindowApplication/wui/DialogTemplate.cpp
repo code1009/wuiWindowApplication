@@ -37,6 +37,14 @@ ResName::ResName(UINT nID) : _Name(MAKEINTRESOURCEW(nID))
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+// https://github.com/Win32-WTL/WTL/blob/main/Include/atldlgs.h :3194
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
 MemoryDialogTemplate::MemoryDialogTemplate() : 
 	_DataPtr(nullptr)
 {
@@ -389,9 +397,28 @@ MemoryDialogTemplateWriter::MemoryDialogTemplateWriter(MemoryDialogTemplate& mem
 }
 
 //===========================================================================
+void MemoryDialogTemplateWriter::BEGIN_DIALOG(short x, short y, short width, short height)
+{
+	bExTemplate = false;
+
+	nX = x, nY = y, nWidth = width, nHeight = height;
+	szCaption = NULL;
+	dwStyle = WS_POPUP | WS_BORDER | WS_SYSMENU;
+	dwExStyle = 0;
+	szFontName = NULL;
+	wFontSize = 0;
+	wWeight = 0;
+	bItalic = 0;
+	bCharset = 0;
+	dwHelpID = 0;
+	Menu = 0U;
+	ClassName = 0U;
+}
+
 void MemoryDialogTemplateWriter::BEGIN_DIALOG_EX(short x, short y, short width, short height, DWORD helpID)
 { 
 	bExTemplate = true;
+
 	nX = x, nY = y, nWidth = width, nHeight = height; 
 	szCaption = NULL; 
 	dwStyle = WS_POPUP | WS_BORDER | WS_SYSMENU; 
@@ -410,6 +437,7 @@ void MemoryDialogTemplateWriter::END_DIALOG(void)
 {
 	_MemoryDialogTemplate.create(
 		bExTemplate,
+
 		szCaption,
 		nX, nY,
 		nWidth,

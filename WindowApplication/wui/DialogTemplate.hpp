@@ -212,13 +212,14 @@ public:
 	MemoryDialogTemplateWriter(MemoryDialogTemplate& memoryDialogTemplate);
 
 public:
+	void BEGIN_DIALOG(short x, short y, short width, short height);
 	void BEGIN_DIALOG_EX(short x, short y, short width, short height, DWORD helpID);
 	void END_DIALOG(void);
 
 public:
 	void DIALOG_CAPTION(LPCWSTR caption);
 	void DIALOG_STYLE(DWORD style);
-	void DIALOG_EXSTYLE(DWORD exStyle);
+	void DIALOG_EXSTYLE(DWORD exStyle=0);
 	void DIALOG_FONT(WORD pointSize, LPCWSTR typeFace);
 	void DIALOG_FONT_EX(WORD pointSize, LPCWSTR typeFace, WORD weight, BYTE italic, BYTE charset);
 	void DIALOG_MENU(ResName menuName);
@@ -229,25 +230,25 @@ public:
 	void END_CONTROLS_MAP();
 
 public:
-	void CONTROL_LTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_CTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_RTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_PUSHBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_DEFPUSHBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_PUSHBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_STATE3(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_AUTO3STATE(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_CHECKBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_AUTOCHECKBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_RADIOBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_AUTORADIOBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_COMBOBOX(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_EDITTEXT(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_GROUPBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_LISTBOX(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_SCROLLBAR(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_ICON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle);
-	void CONTROL_CONTROL(LPCWSTR text, WORD id, ResName className, DWORD style, short x, short y, short width, short height, DWORD exStyle);
+	void CONTROL_LTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_CTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_RTEXT(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_PUSHBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_DEFPUSHBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_PUSHBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_STATE3(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_AUTO3STATE(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_CHECKBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_AUTOCHECKBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_RADIOBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_AUTORADIOBUTTON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_COMBOBOX(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_EDITTEXT(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_GROUPBOX(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_LISTBOX(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_SCROLLBAR(WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_ICON(LPCWSTR text, WORD id, short x, short y, short width, short height, DWORD style, DWORD exStyle=0);
+	void CONTROL_CONTROL(LPCWSTR text, WORD id, ResName className, DWORD style, short x, short y, short width, short height, DWORD exStyle=0);
 };
 
 

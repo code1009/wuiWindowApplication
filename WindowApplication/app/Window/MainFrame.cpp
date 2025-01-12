@@ -9,6 +9,7 @@
 //===========================================================================
 #include "MainFrame.hpp"
 #include "AboutBox.hpp"
+#include "MyBox.hpp"
 
 
 
@@ -140,6 +141,13 @@ void MainFrame::onAppAbout(wui::WindowMessage& windowMessage)
 
 
 	aboutBox.doModal(*this);
+
+	/*
+	MyBox myBox;
+
+
+	myBox.doModal(*this);
+	*/
 }
 
 void MainFrame::onCtlCommand(wui::WindowMessage& windowMessage)

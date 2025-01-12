@@ -99,6 +99,9 @@
     <ClInclude Include="wui\DialogTemplate.hpp">
       <Filter>wui</Filter>
     </ClInclude>
+    <ClInclude Include="app\Window\MyBox.hpp">
+      <Filter>app\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\Main.cpp">
@@ -154,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="wui\DialogTemplate.cpp">
       <Filter>wui</Filter>
+    </ClCompile>
+    <ClCompile Include="app\Window\MyBox.cpp">
+      <Filter>app\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

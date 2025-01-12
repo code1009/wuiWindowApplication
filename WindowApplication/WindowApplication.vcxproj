@@ -24,6 +24,7 @@
     <ClInclude Include="app\pch.hpp" />
     <ClInclude Include="app\Window\AboutBox.hpp" />
     <ClInclude Include="app\Window\MainFrame.hpp" />
+    <ClInclude Include="app\Window\MyBox.hpp" />
     <ClInclude Include="app\Window\pch.hpp" />
     <ClInclude Include="res\Resource.h" />
     <ClInclude Include="wui\AppModule.hpp" />
@@ -55,6 +56,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="app\Window\MainFrame.cpp" />
+    <ClCompile Include="app\Window\MyBox.cpp" />
     <ClCompile Include="wui\AppModule.cpp" />
     <ClCompile Include="wui\BaseWindow.cpp" />
     <ClCompile Include="wui\Coord.cpp" />
